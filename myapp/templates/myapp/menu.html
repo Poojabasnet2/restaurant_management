@@ -1,0 +1,22 @@
+{% extends './base.html' %}
+{% block content %}
+
+{% load static %}
+
+<h1>Menu List</h1>
+<a href="{% url 'myapp:add_item' %}" class="btn btn-outline-danger my-3">Add new item</a>
+<div class="row">
+  {% for menu in list %}
+  <div class="col mb-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ menu.name }}</h5>
+        <p class="card-text">{{ menu.price }}</p>
+        <a href="{% url 'myapp:order' %}" class="btn btn-danger">Add</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
